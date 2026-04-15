@@ -18,6 +18,7 @@ chmod +x run_synth_analysis.sh
 ```
 
 `run_synth_analysis.sh` auto-creates and uses a local virtual environment at `.venv_synth/`.
+By default, outputs go to `../analysis_reports/output` (outside the upload bundle).
 
 ### If you do NOT have metadata (common case)
 
@@ -28,6 +29,12 @@ chmod +x run_synth_analysis.sh
 ```
 
 No manual script edits are needed. Only set the real data file path.
+
+### Optional custom output path
+
+```bash
+./run_synth_analysis.sh "/path/to/real_synthetic_data.csv" "" "../my_reports/run1"
+```
 
 ## Notebook run in virtual workspace
 
@@ -45,10 +52,11 @@ If `METADATA_PATH` does not exist, notebook will continue and run without metada
 - `synthetic_data_analysis.ipynb` auto-detects `analyze_synthetic_data.py` from:
   - current folder, or
   - `./upload_to_virtual_workspace/`
-- In both script and notebook flows, outputs go to `output/`.
+- Script output default: `../analysis_reports/output`
+- Notebook output default: `../analysis_reports/output_notebook`
 - You only need to set your real dataset path.
 
-## Output files (under `output/`)
+## Output files (under your chosen output folder)
 
 - `summary.json`
 - `column_profile.csv`
@@ -78,4 +86,4 @@ After running either shell script or notebook, the package generates chart PNGs 
 - privacy risk summary snapshot
 - PII pattern hit counts
 
-Open `output/visuals/VISUAL_INDEX.md` first, then the listed PNG files.
+Open `<output_dir>/visuals/VISUAL_INDEX.md` first, then the listed PNG files.
