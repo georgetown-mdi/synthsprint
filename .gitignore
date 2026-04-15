@@ -1,0 +1,11 @@
+.DS_Store
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
+
+# Local virtual env and generated reports
+synthetic-data-playground/upload_to_virtual_workspace/.venv_synth/
+synthetic-data-playground/upload_to_virtual_workspace/output/
+synthetic-data-playground/read_reports/local_dry_run_output/
+synthetic-data-playground/local_tests/mock_level1_synthetic.csv
+output/
