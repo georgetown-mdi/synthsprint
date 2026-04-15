@@ -5,6 +5,7 @@ This folder is the only part you need to upload to virtual workspace.
 ## Files
 
 - `analyze_synthetic_data.py`: main analyzer (comprehensive checks)
+- `analyze_synthetic_data_r.R`: R equivalent analyzer (R kernel friendly)
 - `visualize_synthetic_report.py`: creates readable chart artifacts from output CSVs
 - `run_synth_analysis.sh`: zero-setup runner (installs dependencies via pip)
 - `synthetic_data_analysis.ipynb`: notebook workflow with install + run + report review
@@ -45,6 +46,26 @@ No manual script edits are needed. Only set the real data file path.
 5. Run all cells
 
 If `METADATA_PATH` does not exist, notebook will continue and run without metadata.
+
+## R kernel / R script equivalent
+
+If your team prefers R (including R kernel workflows), run:
+
+```bash
+cd upload_to_virtual_workspace
+Rscript analyze_synthetic_data_r.R \
+  --data "/path/to/real_synthetic_data.csv" \
+  --outdir "../analysis_reports/output_r"
+```
+
+Optional metadata:
+
+```bash
+Rscript analyze_synthetic_data_r.R \
+  --data "/path/to/real_synthetic_data.csv" \
+  --metadata "/path/to/CAMCAN_Metadata_SynthSprint (1).xlsx" \
+  --outdir "../analysis_reports/output_r"
+```
 
 ## CWD / path behavior
 
